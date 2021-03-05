@@ -29,7 +29,8 @@ function App() {
       <UserInfo />
       <CurrentAssetPrice />
       <ViewTransactions />
-
+      <AccountBalance />
+      <Transactions />
       <header className="App-header">
       <Switch>
           <Route path="/balance" component={AccountBalance} exact/>
