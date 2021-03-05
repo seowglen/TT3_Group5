@@ -2,25 +2,13 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './login.css';
 
-// async function loginUser(credentials) {
-//     return fetch('http://localhost:8080/login', {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json'
-//       },
-//       body: JSON.stringify(credentials)
-//     })
-//       .then(data => data.json())
-//    }
-
-
 async function loginUser(credentials) {​​​​​​
         try {​​​​​​
           const response = await fetch("https://849rs099m3.execute-api.ap-southeast-1.amazonaws.com/techtrek/login", {​​​​​​
             method: "POST",
-            headers: {​​​​​​ "x-api-key": FagLlQytW3aPBTWJXcAxo2QA1QqEtr2u3xnBPLAd  }​​​​​​,
+            headers: {​​​​​​ "x-api-key": FagLlQytW3aPBTWJXcAxo2QA1QqEtr2u3xnBPLAd }​​​​​​,
             body: JSON.stringify(credentials)
-          }​​​​​​)
+          }​​​​​​);
 
           const parseRes = response.json();
           // setName(parseRes.profile_name);
@@ -30,10 +18,6 @@ async function loginUser(credentials) {​​​​​​
           console.error(err.message);
         }​​​​​​
       }​​​​​​
-
-
-
-
 
 
 export default function Login({ setToken }) {
@@ -73,3 +57,6 @@ export default function Login({ setToken }) {
 Login.propTypes = {
     setToken: PropTypes.func.isRequired
   }
+
+
+
