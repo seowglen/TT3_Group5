@@ -8,17 +8,19 @@ function CurrentAssetPrice() {
  
     async function getPrice() {
         try {
-            const response = await fetch("https://849rs099m3.execute-api.ap-southeast-1.amazonaws.com/techtrek/pricing/current", {
-              method: "POST",
-              headers: { "x-api-key": "FagLlQytW3aPBTWJXcAxo2QA1QqEtr2u3xnBPLAd"}
-            });
+            setInterval(async () => {
+              const response = await fetch("https://849rs099m3.execute-api.ap-southeast-1.amazonaws.com/techtrek/pricing/current", {
+                method: "POST",
+                headers: { "x-api-key": "FagLlQytW3aPBTWJXcAxo2QA1QqEtr2u3xnBPLAd"}
+              });
      
-            const parseRes = await response.json();
-            const date = new Date(parseRes.timestamp).toString();
-            setAssetSymbol(parseRes.assetSymbol);
-            setPrice(parseRes.price);
-            setTimeStamp(date);
+              const parseRes = await response.json();
+              const date = new Date(parseRes.timestamp).toString();
+              setAssetSymbol(parseRes.assetSymbol);
+              setPrice(parseRes.price);
+              setTimeStamp(date);
             // setInfo(parseRes.profile_info);
+            }, 30000);
           } catch (err) {
             console.error(err.message);
           }
@@ -30,9 +32,9 @@ function CurrentAssetPrice() {
  
     return(
       <div className="currentAssetPrice">
-        <p>{assetSymbol}</p>
-        <p>{timeStamp}</p>
-        <p>{price}</p>
+        <p>Asset: {assetSymbol}</p>
+        <p>Time: {timeStamp}</p>
+        <p>Price: {price}</p>
       </div>
     )
     
