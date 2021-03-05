@@ -23,10 +23,6 @@ function AccountBalance() {
                 setAssetBalance(data.assetBalance);
                 setCashBalance(data.cashBalance)
             });
-
-
-            //const parseRes = await response.json();
-            //setName(parseRes.profile_name);
           } catch (err) {
             console.error(err.message);
           }

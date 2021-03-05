@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import AccountBalance from "./AccountBalance"
+import Transactions from "./Transactions"
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
 
@@ -8,7 +9,8 @@ function App() {
     <div className="App">
       <header className="App-header">
       <Switch>
-          <Route path="/" component={AccountBalance} exact/>
+          <Route path="/balance" component={AccountBalance} exact/>
+          <Route path="/transaction" component={Transactions} exact/>
       </Switch>
       </header>
     </div>
