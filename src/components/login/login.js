@@ -17,6 +17,8 @@ async function loginUser(credentials) {
             return false
         } else{
             // console.log('GRANTED')
+            const payload = await response.json()
+            sessionStorage.setItem("userInfo", JSON.stringify(payload))
             return true
         }
     } catch (err) {
