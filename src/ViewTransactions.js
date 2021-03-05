@@ -29,27 +29,29 @@ function ViewTransactions() {
     return(
       <div>
         <p>This is the view transactions component</p>
-        <table className="viewTransactions">
-            <tr>
+        <table className="styled-table">
+            <thead><tr>
                 <th>ID</th>
-                <th>Order Type</th>
+                <th>Order</th>
                 <th>Time Stamp</th>
                 <th>Asset Symbol</th>
                 <th>Asset Amount</th>
                 <th>Asset Price</th>
                 <th>Cash Amount</th>
-            </tr>
+            </tr></thead>
+            <tbody>
             {transactions.map(item => (
                 <tr>
-                    <th>{item.transactionId}</th>
-                    <th>{item.orderType}</th>
-                    <th>{item.timestamp}</th>
-                    <th>{item.assetAmount}</th>
-                    <th>{item.assetSymbol}</th>
-                    <th>{item.assetPrice}</th>
-                    <th>{item.cashAmount}</th>
+                    <td>{item.transactionId}</td>
+                    <td>{item.orderType}</td>
+                    <td>{new Date(item.timestamp).toString()}</td>
+                    <td>{item.assetSymbol}</td>
+                    <td>{item.assetAmount}</td>
+                    <td>{item.assetPrice}</td>
+                    <td>{item.cashAmount}</td>
                 </tr>
             ))}
+            </tbody>
         </table>
       </div>
     );
