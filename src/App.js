@@ -7,31 +7,30 @@ import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import CurrentAssetPrice from './CurrentAssetPrice';
 import ViewTransactions from './ViewTransactions';
-import Historical from './Historical';
 
-
+import UserInfo from './components/userInfo/userInfo';
 import Login from './components/login/login';
 
 
 
 function App() {
+
   const [token, setToken] = useState();
 
   if(!token) {
     return <Login setToken={setToken} />
   }
 
+  
   return (
     <div className="App">
+      <UserInfo />
+      <CurrentAssetPrice />
+      <ViewTransactions />
       <header className="App-header">
       <Switch>
-          <Route path="/" component={CurrentAssetPrice} exact/>
-      </Switch>
-      <Switch>
-          <Route path="/" component={ViewTransactions} exact/>
           <Route path="/balance" component={AccountBalance} exact/>
           <Route path="/transaction" component={Transactions} exact/>
-          <Route path="/historical" component={Historical} exact/>
       </Switch>
       </header>
     </div>
