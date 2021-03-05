@@ -9,6 +9,7 @@ import CurrentAssetPrice from './CurrentAssetPrice';
 import ViewTransactions from './ViewTransactions';
 import Historical from './Historical';
 
+import useToken from './components/useToken/useToken';
 import UserInfo from './components/userInfo/userInfo';
 import Login from './components/login/login';
 
@@ -16,7 +17,7 @@ import Login from './components/login/login';
 
 function App() {
 
-  const [token, setToken] = useState();
+  const { token, setToken } = useToken();
 
   if(!token) {
     return <Login setToken={setToken} />
