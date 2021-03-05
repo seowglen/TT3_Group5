@@ -4,11 +4,19 @@ import './App.css';
 import Login from './components/login/login';
 import useToken from './useToken';
 
+function setToken(userToken) {
+  sessionStorage.setItem('token', JSON.stringify(userToken));
+}
 
+function getToken() {
+  const tokenString = sessionStorage.getItem('token');
+  const userToken = JSON.parse(tokenString);
+  return userToken?.token
+}
 
 
 function App() {
-  const { token, setToken } = useToken()
+  const token = getToken();
 
 
   if(!token) {

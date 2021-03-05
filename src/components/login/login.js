@@ -15,10 +15,10 @@ async function loginUser(credentials) {
             })
         
         if (response.status !== 200){
-            // console.log('NOT GRANTED')
+            console.log('NOT GRANTED')
             return false
         } else{
-            // console.log('GRANTED')
+            console.log('GRANTED')
             return true
         }
     } catch (err) {
