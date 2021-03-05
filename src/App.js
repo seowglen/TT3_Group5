@@ -5,6 +5,8 @@ import AccountBalance from "./AccountBalance"
 import Transactions from "./Transactions"
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
+import CurrentAssetPrice from './CurrentAssetPrice';
+import ViewTransactions from './ViewTransactions';
 
 import Login from './components/login/login';
 
@@ -19,6 +21,8 @@ function App() {
 
   return (
     <div className="App">
+      <CurrentAssetPrice />
+      <ViewTransactions />
       <header className="App-header">
       <Switch>
           <Route path="/balance" component={AccountBalance} exact/>
