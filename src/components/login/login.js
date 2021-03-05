@@ -13,19 +13,42 @@ import './login.css';
 //       .then(data => data.json())
 //    }
 
+
+async function loginUser(credentials) {​​​​​​
+        try {​​​​​​
+          const response = await fetch("https://849rs099m3.execute-api.ap-southeast-1.amazonaws.com/techtrek/login", {​​​​​​
+            method: "POST",
+            headers: {​​​​​​ "x-api-key": FagLlQytW3aPBTWJXcAxo2QA1QqEtr2u3xnBPLAd  }​​​​​​,
+            body: JSON.stringify(credentials)
+          }​​​​​​)
+
+          const parseRes = response.json();
+          // setName(parseRes.profile_name);
+          // setInfo(parseRes.profile_info);
+          console.log(parseRes)
+        }​​​​​​ catch (err) {​​​​​​
+          console.error(err.message);
+        }​​​​​​
+      }​​​​​​
+
+
+
+
+
+
 export default function Login({ setToken }) {
 
-    // const [username, setUserName] = useState();
-    // const [password, setPassword] = useState();
+    const [username, setUserName] = useState();
+    const [password, setPassword] = useState();
 
-    // const handleSubmit = async e => {
-    //     e.preventDefault();
-    //     const token = await loginUser({
-    //       username,
-    //       password
-    //     });
-    //     setToken(token);
-    //   }
+    const handleSubmit = async e => {
+        e.preventDefault();
+        const token = await loginUser({
+          "username": username,
+          "password": password
+          });
+        setToken(token);
+      }
 
   return(
     <div className="login-wrapper">
