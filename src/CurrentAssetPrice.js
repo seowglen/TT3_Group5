@@ -32,9 +32,19 @@ function CurrentAssetPrice() {
  
     return(
       <div className="currentAssetPrice">
-        <p>Asset: {assetSymbol}</p>
-        <p>Time: {timeStamp}</p>
-        <p>Price: {price}</p>
+        <p>This is the current asset price component</p>
+        <table className="styled-table">
+          <thead><tr>
+            <th>Asset</th>
+            <th>Time</th>
+            <th>Price</th>
+          </tr></thead>
+          <tbody><tr>
+            <td>{assetSymbol}</td>
+            <td>{timeStamp}</td>
+            <td>{price}</td>
+          </tr></tbody>
+        </table>
       </div>
     )
     
