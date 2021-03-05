@@ -40,11 +40,6 @@ function Historical() {
                 date.setUTCSeconds(timestamp);
                 return {'datetime': date.toString(), 'timestamp': date, 'price': price}  
               }))
-              console.log(data.map(({price, timestamp}) => {
-                let date = new Date(0)
-                date.setUTCSeconds(timestamp);
-                return {'datetime': date.toString(), 'timestamp': date, 'price': price}  
-              }))
           });
         } catch (err) {
           console.error(err.message);

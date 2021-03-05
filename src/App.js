@@ -9,7 +9,6 @@ import CurrentAssetPrice from './CurrentAssetPrice';
 import ViewTransactions from './ViewTransactions';
 import Historical from './Historical';
 
-
 import UserInfo from './components/userInfo/userInfo';
 import Login from './components/login/login';
 
@@ -26,19 +25,16 @@ function App() {
   
   return (
     <div className="App">
+      <Historical />
       <UserInfo />
       <CurrentAssetPrice />
       <ViewTransactions />
-
+      <AccountBalance />
+      <Transactions />
       <header className="App-header">
       <Switch>
-          <Route path="/" component={CurrentAssetPrice} exact/>
-      </Switch>
-      <Switch>
-          <Route path="/" component={ViewTransactions} exact/>
           <Route path="/balance" component={AccountBalance} exact/>
           <Route path="/transaction" component={Transactions} exact/>
-          <Route path="/historical" component={Historical} exact/>
       </Switch>
       </header>
     </div>
