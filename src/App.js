@@ -1,5 +1,12 @@
-import './App.css';
 import React, { useState } from 'react';
+
+import logo from './logo.svg';
+import AccountBalance from "./AccountBalance"
+import Transactions from "./Transactions"
+import { Route, Switch } from 'react-router-dom';
+import './App.css';
+import CurrentAssetPrice from './CurrentAssetPrice';
+import ViewTransactions from './ViewTransactions';
 
 import UserInfo from './components/userInfo/userInfo';
 import Login from './components/login/login';
@@ -18,6 +25,14 @@ function App() {
   return (
     <div className="App">
       <UserInfo />
+      <CurrentAssetPrice />
+      <ViewTransactions />
+      <header className="App-header">
+      <Switch>
+          <Route path="/balance" component={AccountBalance} exact/>
+          <Route path="/transaction" component={Transactions} exact/>
+      </Switch>
+      </header>
     </div>
   );
 }
